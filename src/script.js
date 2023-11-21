@@ -12,7 +12,6 @@ function trackPackage() {
     SVGstatus.style.stroke = "grey";
   } else {
     resultDiv.style.display = "block";
-    resultDiv.innerText = 'Por favor, insira um número de rastreamento.';
   }
 }
  trackerBtn.addEventListener('click', trackPackage);
