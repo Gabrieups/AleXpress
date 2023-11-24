@@ -73,7 +73,11 @@ button:hover {
   height: 4vw;
 }
 
-#status{
+.status{
+  width: 10vw;
+}
+
+/* #result{
   width: 10vw;
   opacity: 0;
-}
+} */
