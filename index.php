@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+
+<!DOCTYPE html>
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
@@ -14,7 +16,7 @@
     </div>
 
     <div class="busca">
-      <input type="text" id="trackingNumber" placeholder="Digite o número de rastreamento">
+      <input type="text" id="trackingNumber" name="busca" placeholder="Digite o número de rastreamento">
       <button type="submit" id="tracker"><img src="src/imagens/rastrear.png" alt="Rastrear"></button>
     </div>
 
@@ -56,3 +58,5 @@
   <script src="src/script.js"></script>
 </body>
 </html>
+
+
