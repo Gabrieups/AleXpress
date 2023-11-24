@@ -1,15 +1,15 @@
-const trackerBtn = document.getElementById("tracker");
+// const trackerBtn = document.getElementById("tracker");
 
-function trackPackage() {
-  // Simulação de rastreamento com número aleatório
-  const trackingNumber = document.getElementById('trackingNumber').value;
-  const resultDiv = document.getElementById('result');
-  const SVGstatus = document.getElementById('status');
+// function trackPackage() {
+//   // Simulação de rastreamento com número aleatório
+//   const trackingNumber = document.getElementById('trackingNumber').value;
+//   const resultDiv = document.getElementById('result');
+//   const SVGstatus = document.getElementById('status');
 
-  if (trackingNumber.trim() !== '') {
+//   if (trackingNumber.trim() !== '') {
 
-  } else {
+//   } else {
 
-  }
-}
- trackerBtn.addEventListener('click', trackPackage);
+//   }
+// }
+//  trackerBtn.addEventListener('click', trackPackage);
