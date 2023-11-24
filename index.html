@@ -13,10 +13,17 @@
       <img src="src/imagens/alexpress.png" alt="AleXpress logo">
     </div>
 
-    <div class="busca">
+<!--    <div class="busca">
       <input type="text" id="trackingNumber" placeholder="Digite o número de rastreamento">
       <button type="submit" id="tracker"><img src="src/imagens/rastrear.png" alt="Rastrear"></button>
     </div>
+      <button id="tracker"><img src="src/imagens/rastrear.png" alt="Rastrear"></button>
+    </div> -->
+
+    <form class="busca" action="tracker.php" method="post">
+     <input type="text" id="trackingNumber" name="trackingNumber" placeholder="Digite o número de rastreamento">
+     <button type="submit" id="tracker"><img src="src/imagens/rastrear.png" alt="Rastrear"></button>
+    </form>
 
     <div id="result">
       <div class="status" id="divcol">
