@@ -13,14 +13,7 @@
       <img src="src/imagens/alexpress.png" alt="AleXpress logo">
     </div>
 
-<!--    <div class="busca">
-      <input type="text" id="trackingNumber" placeholder="Digite o número de rastreamento">
-      <button type="submit" id="tracker"><img src="src/imagens/rastrear.png" alt="Rastrear"></button>
-    </div>
-      <button id="tracker"><img src="src/imagens/rastrear.png" alt="Rastrear"></button>
-    </div> -->
-
-    <form class="busca" action="tracker.php" method="post">
+    <form class="busca" action="index.php" method="post">
      <input type="text" id="trackingNumber" name="trackingNumber" placeholder="Digite o número de rastreamento">
      <button type="submit" id="tracker"><img src="src/imagens/rastrear.png" alt="Rastrear"></button>
     </form>
@@ -55,6 +48,10 @@
           <path d="M6 12.3281L9 14" stroke="#4d4d4d" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
           <p>Pedido Entregue</p>
+      </div>
+
+      <div>
+        <p id="status-entrega"></p>
       </div>
     </div>
 

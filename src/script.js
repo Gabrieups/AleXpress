@@ -1,58 +1,47 @@
-// const trackerBtn = document.getElementById("tracker");
-
-// function trackPackage() {
-//   // Simulação de rastreamento com número aleatório
-//   const trackingNumber = document.getElementById('trackingNumber').value;
-//   const resultDiv = document.getElementById('result');
-//   const SVGstatus = document.getElementById('status');
-
-//   if (trackingNumber.trim() !== '') {
-
-//   } else {
-
-//   }
-// }
-//  trackerBtn.addEventListener('click', trackPackage);
-
-document.getElementById('tracker').addEventListener('click', function () {
-    // Obter o código da encomenda do input
-    var codigoEncomenda = document.getElementById('trackingNumber').value;
-
-    // Fazer a requisição AJAX para verificar o status da encomenda
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            // Atualizar o status da encomenda com a resposta do servidor
-            atualizarStatusEncomenda(this.responseText);
+document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("tracker").addEventListener("click", function (event) {
+      event.preventDefault();
+      var trackingNumber = document.getElementById("trackingNumber").value;
+  
+      // Enviar requisição AJAX para o arquivo PHP
+      var xhr = new XMLHttpRequest();
+      xhr.open("POST", "index.php", true);
+      xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+          var statusEntrega = document.getElementById("status-entrega");
+          var statusValue = xhr.responseText;
+  
+          // Verificar se a tag <p> existe
+          if (statusEntrega) {
+            // Remover todas as classes existentes
+            statusEntrega.classList.remove("status-coletado", "status-transporte", "status-entregue", "status-nao-encontrado");
+  
+            // Adicionar a classe correspondente ao valor retornado
+            switch (statusValue) {
+              case "0":
+                statusEntrega.textContent = "Código de rastreamento não encontrado.";
+                statusEntrega.classList.add("status-nao-encontrado");
+                break;
+              case "1":
+                statusEntrega.textContent = "Pedido coletado";
+                statusEntrega.classList.add("status-coletado");
+                break;
+              case "2":
+                statusEntrega.textContent = "Pedido em transporte";
+                statusEntrega.classList.add("status-transporte");
+                break;
+              case "3":
+                statusEntrega.textContent = "Pedido entregue";
+                statusEntrega.classList.add("status-entregue");
+                break;
+              default:
+                statusEntrega.textContent = "Status desconhecido";
+            }
+          }
         }
-    };
-    xhttp.open('POST', 'verificar_pedido.php', true);
-    xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-    xhttp.send('codigo_encomenda=' + codigoEncomenda);
-});
-
-function atualizarStatusEncomenda(status) {
-    // Atualizar a interface com base no status retornado
-    var divcol = document.getElementById('divcol');
-    var trans = document.getElementById('trans');
-    var ent = document.getElementById('ent');
-
-    divcol.classList.remove('ativo');
-    trans.classList.remove('ativo');
-    ent.classList.remove('ativo');
-
-    switch (status) {
-        case 'Coletado':
-            divcol.classList.add('ativo');
-            break;
-        case 'Transporte':
-            trans.classList.add('ativo');
-            break;
-        case 'Entregue':
-            ent.classList.add('ativo');
-            break;
-        default:
-            // Tratar o caso em que o código não foi encontrado
-            alert('Código de encomenda não encontrado.');
-    }
-}
+      };
+      xhr.send("trackingNumber=" + trackingNumber);
+    });
+  });
+  
