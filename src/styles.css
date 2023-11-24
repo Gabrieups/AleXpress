@@ -64,20 +64,25 @@ button:hover {
 }
 
 #result{
-  display: none;
+  display: flex;
+  gap: 6vw;
 }
+
+.status{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #4d4d4d;
+  font-size: 1.8vw;
+}
+
+.pedimg{
+  width: 6vw;
+}
+
 
 .rodape{
   background-color: #032CA6;
   width: 100vw;
   height: 4vw;
 }
-
-.status{
-  width: 10vw;
-}
-
-/* #result{
-  width: 10vw;
-  opacity: 0;
-} */
